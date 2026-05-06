@@ -18,7 +18,7 @@ B array = filter h[k]
 C array = output y[n]
 
 ## Construct 2 RCAs:
-### working on it: 
+### working on it: Tara -- 1st RCA 
 
 RCA #1 = compute B_index = n-k
 RCA #2 = compute Y = Y + product
@@ -29,6 +29,8 @@ RCA #2 = compute Y = Y + product
 product = A[k] * Bi
 
 ## Construct Comparator:
+
+## B Memory Module - for Compare
 ### working on it: Tara
 
 checks if B_index is valid
