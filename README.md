@@ -3,7 +3,13 @@
 
 ### make sure its a .v file for when you create the file or upload to the hub
   # -- TO DO --
-  
+
+## Specifications: 
+  * A: 16 bits
+  * B: 16 bits
+  * Multiplier output: 32 bits
+  * Accumulator C: 32 bits or larger
+  * Final Y: 32 bits
 
 ## Construct 3 Array Modules:
 ### working on it: 
