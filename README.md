@@ -12,7 +12,7 @@
   * Final Y: 32 bits
 
 ## Construct 3 Array Modules:
-### working on it: 
+### working on it: Justus
 A array = input signal x[k]
 B array = filter h[k]
 C array = output y[n]
@@ -34,7 +34,7 @@ product = A[k] * Bi
 checks if B_index is valid
 
 ## Construct MUX:
-### working on it:
+### working on it: Justus
 
 if B_index is valid, Bi = B_array[B_index]
 else Bi = 0
