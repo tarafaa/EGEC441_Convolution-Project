@@ -1,6 +1,19 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+// Comparing if B is a negative number
+//if((i-k)>=0&&(i-k)<sizeB){
+//sum=sum+A_array[k]*B_array[i-k];
 
+//}
+//}
+//C_array[i]=sum;
+//}
+
+// input/output declaration
+module Compare (
+B_i // B index
+k 
+);
 entity Compare is
     Port (
         CODE_W : in  STD_LOGIC_VECTOR(3 downto 0);
