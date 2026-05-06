@@ -28,12 +28,13 @@ RCA #2 = compute Y = Y + product
 
 product = A[k] * Bi
 
-## Construct Comparator:
-## B Memory Module - for Compare
+## Construct Comparator: 
+### working on it: Tara
 
 checks if B_index is valid (B index is non negative)
 conducts summation of B
 
+## B Memory Module - for Compare
 ### working on it: Tara
 
 inserts the B total into a Memory Module getting it ready for summation
