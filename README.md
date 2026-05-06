@@ -18,7 +18,7 @@ RCA #1 = compute B_index = n-k
 RCA #2 = compute Y = Y + product
 
 ## Construct 1 Multiplier:
-### working on it: 
+### working on it: Jesus
 
 product = A[k] * Bi
 
