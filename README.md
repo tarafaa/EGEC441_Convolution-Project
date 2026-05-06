@@ -50,7 +50,7 @@ else Bi = 0
 
 connects arrays, RCA, comparator, MUX, multiplier, accumulator
 
-## Construct Testbench:
+## Construct Testbench: Jesus
 ### working on it: 
 
 loads user/test values into A and B arrays
