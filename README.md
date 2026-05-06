@@ -1,7 +1,7 @@
 # EGEC441_Convolution-Project
 ### Multiply, Accumulating and Convolving
 
-### make sure its a .v file for when you create the file or upload to the hub
+### make sure its a .v file for when you create the file 
   # -- TO DO --
 
 ## Specifications: 
