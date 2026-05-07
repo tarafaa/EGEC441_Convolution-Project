@@ -16,7 +16,11 @@
 For this, please reference Memory B to help with Making Memory A
 
   A array = input signal x[k] (in Memory A)
+
+  
   B array = filter h[k] (this will be fed to the Compare module)
+
+  
   C array = output y[n] (this will be fed to RCA #2)
 
 ## MemoryA:
