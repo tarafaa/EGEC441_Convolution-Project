@@ -13,9 +13,18 @@
 
 ## Construct 3 Array Modules:
 ### working on it: Justus
+For this, please reference Memory B to help with Making Memory A
 A array = input signal x[k]
 B array = filter h[k]
 C array = output y[n]
+
+## MemoryA:
+    stores x[k]
+    input: addr/k
+    output: Aout = A[k]
+
+## C array/register:
+    stores y[n] output values
 
 ## Construct 2 RCAs:
 ### working on it: Tara -- 1st RCA 
