@@ -1,45 +1,50 @@
 `timescale 1ns / 1ps
 
-
-
 module CompareB(
-    input [15:0] Bi, // Bi is the index of array B (impluse)
-    input k, // counter k 
+    input [15:0] Bi, // Bi is the index of array B (impluse) 
     input clk,
     input rst,
-    output [15:0] Bn, 
-    output [15:0] Btotal
+    output reg [15:0] Bn, 
+    output     [15:0] Btotal,
+    output reg done
     );
-endmodule
+ // reg means value that is stored and updated in an always block
+reg [3:0] k; // this counts up to 16 (can be adjusted)
 
-wire kstate;
-wire clk;
-wire rst; 
-wire Bn;
 // at positive edge of the clock change the next state of k
 // asynchronous reset
-always @(posedge clk)  begin
-
-if (!rst) begin 
-Bi > 0 then 
-for(k = 0, k > 0, k++){
-kstate <= k + 1; // let n be the index value of k 
-if (k - B(i) > 0){ // if k - B(index value) is less 
-Bn <= B(i) - k(n); // calcualte the i - k 
-
-
-module Bmemory ( 
+Bmemory u_bm0 ( 
 .Bin(Bn),
 .Bout(Btotal)
 );
 
-end module;
-}
-else 
+always @(posedge clk) begin
 
-disable loop;
-}
+if (rst) begin
 
-end;
+k <= 0;
+Bn <= 0;
+done <= 0;
+            
+end 
 
-// not done but pseduocode  
+else if(Bi >= k) begin
+
+Bn <= Bi - k;
+k <= k + 1;
+done <= 0;
+           
+end 
+
+else begin 
+            
+ done <= 1;
+ k <= k;
+ Bn <= Bn;
+ 
+ end
+ 
+ end
+ 
+ endmodule           
+
