@@ -1,5 +1,3 @@
-MemoryB_TB.png
-
 `timescale 1ns / 1ps
 
 module MemoryB_tb;
