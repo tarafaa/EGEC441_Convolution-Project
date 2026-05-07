@@ -1,0 +1,59 @@
+`timescale 1ns / 1ps
+
+module MemoryB_tb;
+
+reg [15:0] Bin;
+reg [4:0] addr;
+reg WE;
+reg clk;
+wire [15:0] Bout;
+
+MemoryB uut (
+    .Bin(Bin),
+    .addr(addr),
+    .WE(WE),
+    .clk(clk),
+    .Bout(Bout)
+);
+
+// Clock generation, VHDL-style
+always begin
+    clk = 1'b1;
+    #5;
+    clk = 1'b0;
+    #5;
+end
+
+initial begin
+    WE = 0;
+    Bin = 0;
+    addr = 0;
+
+    // wait a little before writing
+    #3;
+
+    // WRITE values
+    WE = 1;
+
+    addr = 5'd0; Bin = 16'd10; #10;
+    addr = 5'd1; Bin = 16'd2;  #10;
+    addr = 5'd2; Bin = 16'd19; #10;
+    addr = 5'd3; Bin = 16'd3;  #10;
+
+    // READ values
+    WE = 0;
+
+    addr = 5'd0; #10;
+    addr = 5'd1; #10;
+    addr = 5'd2; #10;
+    addr = 5'd3; #10;
+
+    $finish;
+end
+
+initial begin
+    $monitor("time=%0t | clk=%b | WE=%b | addr=%d | Bin=%d | Bout=%d",
+              $time, clk, WE, addr, Bin, Bout);
+end
+
+endmodule
