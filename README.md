@@ -14,9 +14,10 @@
 ## Construct 3 Array Modules:
 ### working on it: Justus
 For this, please reference Memory B to help with Making Memory A
-A array = input signal x[k]
-B array = filter h[k]
-C array = output y[n]
+
+  A array = input signal x[k] (in Memory A)
+  B array = filter h[k] (this will be fed to the Compare module)
+  C array = output y[n] (this will be fed to RCA #2)
 
 ## MemoryA:
     stores x[k]
