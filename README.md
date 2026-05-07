@@ -23,8 +23,8 @@ C array = output y[n]
 RCA #1 = compute B_index = n-k
 RCA #2 = compute Y = Y + product
 
-## Construct 1 Multiplier:
-### working on it: Jesus (Done)
+## Construct 1 Multiplier: -- DONE
+### working on it: Jesus
 
 product = A[k] * Bi
 
@@ -34,10 +34,10 @@ product = A[k] * Bi
 checks if B_index is valid (B index is non negative)
 conducts summation of B
 
-## B Memory Module - for Compare
+## B Memory Module - for Compare -- DONE
 ### working on it: Tara
 
-inserts the B total into a Memory Module getting it ready for summation
+inserts the B total into a Memory Module, getting it ready for summation
 
 ## Construct MUX:
 ### working on it: Justus
