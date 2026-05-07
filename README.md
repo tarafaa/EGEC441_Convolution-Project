@@ -1,6 +1,6 @@
 # EGEC441_Convolution-Project
 ### Multiply, Accumulating and Convolving
-
+-- to see the structural diagram, look in Google Docs: https://docs.google.com/document/d/1C7WxYBjMMmh4Kwd5BA1LIYB42v2O_TmrD2CL_c7xr68/edit?usp=sharing
 ### make sure its a .v file for when you create the file 
   # -- TO DO --
 
