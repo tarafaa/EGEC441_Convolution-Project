@@ -28,7 +28,7 @@ RCA #2 = compute Y = Y + product
 
 product = A[k] * Bi
 
-## Construct Comparator: 
+## Construct Comparator:  -- DONE
 ### working on it: Tara
 
 checks if B_index is valid (B index is non negative)
