@@ -35,6 +35,8 @@ For this, please reference Memory B to help with Making Memory A
 ### working on it: Tara -- 1st RCA 
 
 RCA #1 = compute B_index = n-k
+
+
 RCA #2 = compute Y = Y + product
 
 ## Construct 1 Multiplier: -- DONE
