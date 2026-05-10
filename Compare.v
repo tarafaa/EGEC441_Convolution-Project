@@ -13,7 +13,7 @@ reg [3:0] k; // this counts up to 16 (can be adjusted)
 
 // at positive edge of the clock change the next state of k
 // asynchronous reset
-Bmemory u_bm0 ( 
+MemoryB u_bm0 ( 
 .Bin(Bn),
 .Bout(Btotal)
 );
