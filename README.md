@@ -24,6 +24,7 @@ For this, please reference Memory B to help with Making Memory A
   C array = output y[n] (this will be fed to RCA #2)
 
 ## MemoryA:
+### working on it: Chris
     stores x[k]
     input: addr/k
     output: Aout = A[k]
@@ -32,7 +33,7 @@ For this, please reference Memory B to help with Making Memory A
     stores y[n] output values
 
 ## Construct 2 RCAs:
-### working on it: Tara -- 1st RCA 
+### working on it: Tara -- 1st RCA, Chris -- 2nd RCA
 
 RCA #1 = compute B_index = n-k
 
