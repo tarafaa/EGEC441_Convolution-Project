@@ -11,7 +11,7 @@
   * Accumulator C: 32 bits or larger
   * Final Y: 32 bits
 
-## Construct 3 Array Modules:
+## Construct 3 Array Modules: -- DONE
 ### working on it: Justus
 For this, please reference Memory B to help with Making Memory A
 
@@ -56,7 +56,7 @@ conducts summation of B
 
 inserts the B total into a Memory Module, getting it ready for summation
 
-## Construct MUX:
+## Construct MUX: -- DONE
 ### working on it: Justus
 
 if B_index is valid, Bi = B_array[B_index]
