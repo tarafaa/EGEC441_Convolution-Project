@@ -1,26 +1,34 @@
 `timescale 1ns / 1ps
 
 module MemoryB(
-    input [15:0] Bin, // data in
-    input [4:0] addr, // address we write to (32 bits)
-    input WE, // write enable 
+    input [15:0] Bin,
+    input [4:0] addr,
+    input WE,
     input clk,
-    output reg [15:0] Bout // data out
-    );
+    input rst,
+    output reg [15:0] Bout
+);
 
+    reg [15:0] B [31:0];
 
-reg[15:0] B [0:31]; // Bin array Bin - 16 bits, we have 32 array locations available
+    integer i;
 
-always @(posedge clk) begin
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            Bout <= 16'd0;
 
-if(WE == 1'b1) begin
+            for (i = 0; i < 32; i = i + 1) begin
+                B[i] <= 16'd0;
+            end
+        end
+        else begin
+            if (WE == 1'b1) begin
+                B[addr] <= Bin;
+            end
+            else begin
+                Bout <= B[addr];
+            end
+        end
+    end
 
- B[addr] <= Bin;
-end
-else begin
-
-Bout <= B[addr];
-end 
-
-end
 endmodule
