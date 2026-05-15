@@ -43,7 +43,7 @@ module TopModule_TB;
         rst = 0;
 
         // LOAD inputs A = 1..30
-        for (i = 0; i < 30; i = i + 1) begin
+        for (i = 0; i < 32; i = i + 1) begin
             @(negedge clk);
 
             loadA = 1;
@@ -57,7 +57,7 @@ module TopModule_TB;
         loadA = 0;
 
         // LOAD impluse B = 2
-        for (i = 0; i < 30; i = i + 1) begin
+        for (i = 0; i < 32; i = i + 1) begin
             @(negedge clk);
 
             loadA = 0;
