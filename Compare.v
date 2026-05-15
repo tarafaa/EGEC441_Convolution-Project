@@ -1,50 +1,41 @@
 `timescale 1ns / 1ps
 
 module CompareB(
-    input [15:0] Bi, // Bi is the index of array B (impluse) 
+    input [15:0] Bi,
     input clk,
     input rst,
-    output reg [15:0] Bn, 
-    output     [15:0] Btotal,
+    output reg [15:0] Bn,
+    output [15:0] Btotal,
     output reg done
-    );
- // reg means value that is stored and updated in an always block
-reg [3:0] k; // this counts up to 16 (can be adjusted)
-
-// at positive edge of the clock change the next state of k
-// asynchronous reset
-MemoryB u_bm0 ( 
-.Bin(Bn),
-.Bout(Btotal)
 );
 
-always @(posedge clk) begin
+    reg [4:0] k;
+    wire [4:0] mem_addr;
 
-if (rst) begin
+    assign mem_addr = Bn[4:0];
 
-k <= 0;
-Bn <= 0;
-done <= 0;
-            
-end 
+    MemoryB u_bm0 ( 
+        .Bin(16'b0),
+        .addr(mem_addr),
+        .WE(1'b0),
+        .clk(clk),
+        .Bout(Btotal)
+    );
 
-else if(Bi >= k) begin
+    always @(posedge clk) begin
+        if (rst) begin
+            k <= 5'd0;
+            Bn <= 16'd0;
+            done <= 1'b0;
+        end 
+        else if (Bi >= k) begin
+            Bn <= Bi - k;
+            k <= k + 1'b1;
+            done <= 1'b0;
+        end 
+        else begin 
+            done <= 1'b1;
+        end
+    end
 
-Bn <= Bi - k;
-k <= k + 1;
-done <= 0;
-           
-end 
-
-else begin 
-            
- done <= 1;
- k <= k;
- Bn <= Bn;
- 
- end
- 
- end
- 
- endmodule           
-
+endmodule
