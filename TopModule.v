@@ -22,7 +22,6 @@ module TopModule(
 
     reg [4:0] addrA;
     reg [4:0] addrB;
-
     reg [4:0] calc_n;
 
     reg computing;
@@ -54,58 +53,44 @@ module TopModule(
 
     always @(posedge clk or posedge rst) begin
         if (rst) begin
-            done <= 0;
-            Y <= 0;
-            Y_n <= 0;
-
-            addrA <= 0;
-            addrB <= 0;
-
-            calc_n <= 0;
-
-            computing <= 0;
-            wait_read <= 0;
+            done <= 1'b0;
+            Y <= 32'sd0;
+            Y_n <= 5'd0;
+            addrA <= 5'd0;
+            addrB <= 5'd0;
+            calc_n <= 5'd0;
+            computing <= 1'b0;
+            wait_read <= 1'b0;
         end
         else begin
-
             if (start && !computing) begin
-                computing <= 1;
-                wait_read <= 1;
-
-                done <= 0;
-
-                calc_n <= 0;
-
-                addrA <= 0;
-                addrB <= 0;
-
-                Y <= 0;
-                Y_n <= 0;
+                done <= 1'b0;
+                Y <= 32'sd0;
+                Y_n <= 5'd0;
+                addrA <= 5'd0;
+                addrB <= 5'd0;
+                calc_n <= 5'd0;
+                computing <= 1'b1;
+                wait_read <= 1'b1;
             end
-
             else if (computing) begin
-
                 if (wait_read) begin
-                    wait_read <= 0;
+                    wait_read <= 1'b0;
                 end
-
                 else begin
-
-                    // REGISTER OUTPUTS TOGETHER
                     Y <= product;
                     Y_n <= calc_n;
 
-                    if (calc_n == 5'd29) begin
-                        done <= 1;
-                        computing <= 0;
+                    if (calc_n == 5'd30) begin
+                        done <= 1'b1;
+                        computing <= 1'b0;
+                        wait_read <= 1'b0;
                     end
                     else begin
-                        calc_n <= calc_n + 1;
-
-                        addrA <= calc_n + 1;
-                        addrB <= 0;
-
-                        wait_read <= 1;
+                        calc_n <= calc_n + 1'b1;
+                        addrA <= calc_n + 1'b1;
+                        addrB <= 5'd0;
+                        wait_read <= 1'b1;
                     end
                 end
             end
