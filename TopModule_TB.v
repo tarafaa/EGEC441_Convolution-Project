@@ -14,7 +14,7 @@ module TopModule_TB;
     reg signed [15:0] Bin = 0;
 
     wire done;
-    wire [4:0] Y_n;
+    wire [5:0] Y_n;
     wire signed [31:0] Y;
 
     integer i = 0;
@@ -36,19 +36,17 @@ module TopModule_TB;
     always #5 clk = ~clk;
 
     initial begin
+        $display("Starting simulation...");
 
-        // RESET
         rst = 1;
         #20;
         rst = 0;
 
-        // LOAD inputs A = 1..30
+        // Load Memory A: x = 1, 2, 3, ..., 32
         for (i = 0; i < 32; i = i + 1) begin
             @(negedge clk);
-
             loadA = 1;
             loadB = 0;
-
             load_addr = i[4:0];
             Ain = i + 1;
         end
@@ -56,30 +54,49 @@ module TopModule_TB;
         @(negedge clk);
         loadA = 0;
 
-        // LOAD impluse B = 2
+        // Load Memory B: h = [1, 2, 0, 0, ...]
         for (i = 0; i < 32; i = i + 1) begin
             @(negedge clk);
-
             loadA = 0;
             loadB = 1;
-
             load_addr = i[4:0];
-            Bin = 16'd2;
+
+            if (i == 0)
+                Bin = 16'd1;
+            else if (i == 1)
+                Bin = 16'd2;
+            else
+                Bin = 16'd0;
         end
 
         @(negedge clk);
         loadB = 0;
 
-        // ALLOW MEMORY TO SETTLE
         repeat(2) @(posedge clk);
 
-        // START
+        // Start convolution
         @(negedge clk);
         start = 1;
 
         @(negedge clk);
         start = 0;
 
+        // Display outputs
+        $display("Index | Y");
+        $display("----------");
+
+        while (!done) begin
+            @(posedge clk);
+            #1;
+            $display("%0d | %0d", Y_n, Y);
+        end
+
+        #1;
+        $display("%0d | %0d", Y_n, Y);
+        $display("Convolution complete.");
+
+        #20;
+        $finish;
     end
 
 endmodule
